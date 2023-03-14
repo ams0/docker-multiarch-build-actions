@@ -17,3 +17,5 @@ jobs:
                 dockerUser: ${{ github.actor }}
                 dockerPassword: ${{ secrets.GH_TOKEN }}
                 dockerServer: ghcr.io
+                dockerFile: dockerfiles/test/Dockerfile
+                context: dockerfiles/test
