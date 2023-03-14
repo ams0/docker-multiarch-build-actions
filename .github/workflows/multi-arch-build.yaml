@@ -1,0 +1,20 @@
+name: CI
+on: push
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        name: Build image job
+        steps:
+            - name: Checkout master
+              uses: actions/checkout@master
+            - name: Build and publish image
+              uses: ilteoood/docker_buildx@master
+              with:
+                publish: true
+                tag: ${{ github.sha }}
+                imageName: ams0/docker-multiarch-build-actions
+                dockerUser: ${{ github.actor }}
+                dockerPassword: ${{ secrets.GH_TOKEN }}
+                dockerServer: ghcr.io
+                context: dockerfiles/test
