@@ -13,7 +13,7 @@ jobs:
               with:
                 publish: true
                 tag: ${{ github.sha }}
-                imageName: ams0/docker-multiarch-build-actions
+                imageName: ghcr.io/ams0/docker-multiarch-build-actions
                 dockerUser: ${{ github.actor }}
                 dockerPassword: ${{ secrets.GH_TOKEN }}
                 dockerServer: ghcr.io
